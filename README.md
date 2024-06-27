@@ -4,12 +4,6 @@ A terminal style website for Ethan Post, forked from [M4TT72 | Terminal](https:/
 
 ## Quick Start
 
-### Using docker (recommended)
-
-```bash
-docker run -d --name terminal -p 3000:3000 ghcr.io/m4tt72/terminal
-```
-
 ### Using npm
 
 1. Install dependencies:

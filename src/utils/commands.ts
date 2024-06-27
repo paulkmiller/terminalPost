@@ -36,7 +36,6 @@ export const commands: Record<string, (args: string[]) => Promise<string> | stri
     switch (args[0]) {
       case 'ls': {
         let result = themes.map((t) => t.name.toLowerCase()).join(', ');
-        result += `You can preview all these themes here: ${packageJson.repository.url}/tree/master/docs/themes`;
 
         return result;
       }
@@ -74,14 +73,16 @@ export const commands: Record<string, (args: string[]) => Promise<string> | stri
     return '';
   },
   email: () => {
-    window.open(`mailto:${packageJson.author.email}`);
+    window.open(`mailto:ethancpost@gmail.com`);
 
-    return `Opening mailto:${packageJson.author.email}...`;
+    return `Opening mailto:ethancpost@gmail.com...`;
   },
-  donate: () => {
-    window.open(packageJson.funding.url, '_blank');
-
-    return 'Opening donation url...';
+  notes: () => {
+    const notes = 
+    if (!note) {
+      return 'Usage: notes [note]. Under Construction...';
+    }
+    return `Note ${note} not found. Try 'notes ls' to see all available notes.`;
   },
   weather: async (args: string[]) => {
     const city = args.join('+');
@@ -114,12 +115,12 @@ export const commands: Record<string, (args: string[]) => Promise<string> | stri
     }
   },
   banner: () => `
-███╗   ███╗██╗  ██╗████████╗████████╗███████╗██████╗
-████╗ ████║██║  ██║╚══██╔══╝╚══██╔══╝╚════██║╚════██╗
-██╔████╔██║███████║   ██║      ██║       ██╔╝ █████╔╝
-██║╚██╔╝██║╚════██║   ██║      ██║      ██╔╝ ██╔═══╝
-██║ ╚═╝ ██║     ██║   ██║      ██║      ██║  ███████╗
-╚═╝     ╚═╝     ╚═╝   ╚═╝      ╚═╝      ╚═╝  ╚══════╝ v${packageJson.version}
+███████╗████████╗██╗  ██╗ █████╗ ███╗   ██╗    ██████╗  ██████╗ ███████╗████████╗
+██╔════╝╚══██╔══╝██║  ██║██╔══██╗████╗  ██║    ██╔══██╗██╔═══██╗██╔════╝╚══██╔══╝
+███████╗   ██║   ███████║███████║██╔██╗ ██║    ██████╔╝██║   ██║███████╗   ██║   
+██╔════╝   ██║   ██╔══██║██╔══██║██║╚██╗██║    ██╔═══╝ ██║   ██║╚════██║   ██║   
+███████║   ██║   ██║  ██║██║  ██║██║ ╚████║    ██║     ╚██████╔╝███████║   ██║   
+╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝    ╚═╝      ╚═════╝ ╚══════╝   ╚═╝ v${packageJson.version}
 
 Type 'help' to see list of available commands.
 `,

@@ -1,21 +1,17 @@
 {
   "name": "terminal",
   "private": true,
-  "version": "3.3.1",
+  "version": "1.0.1",
   "type": "module",
   "license": "MIT",
   "author": {
-    "name": "Yassine Fathi",
-    "url": "https://fathi.me",
-    "email": "yassine@fathi.me"
-  },
-  "funding": {
-    "type": "Paypal",
-    "url": "https://paypal.me/yfthi"
+    "name": "Paul Miller",
+    "url": "https://www.paulkmiller.com",
+    "email": "paulkmiller@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/m4tt72/terminal"
+    "url": "https://github.com/paulkmiller/terminalPost"
   },
   "scripts": {
     "dev": "vite",

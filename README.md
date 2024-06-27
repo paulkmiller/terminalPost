@@ -1,6 +1,6 @@
 A terminal style website for Ethan Post, forked from [M4TT72 | Terminal](https://term.m4tt72.com)
 
-![screenshot](screenshot.png)
+![screenshot](/public/screenshot.png)
 
 ## Quick Start
 

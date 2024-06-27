@@ -1,5 +1,6 @@
 import packageJson from '../../package.json';
 import themes from '../../themes.json';
+import notes from '../../notes.json';
 import { history } from '../stores/history';
 import { theme } from '../stores/theme';
 
@@ -77,12 +78,46 @@ export const commands: Record<string, (args: string[]) => Promise<string> | stri
 
     return `Opening mailto:ethancpost@gmail.com...`;
   },
-  notes: () => {
-    const notes = 
-    if (!note) {
-      return 'Usage: notes [note]. Under Construction...';
+  notes: (args: string[]) => {
+    const usage = `Usage: notes [args].
+    [args]:
+      ls: list all available notes
+      show: show note with [id]
+
+    [Examples]:
+      notes ls
+      notes show note1
+    `;
+    if (args.length === 0) {
+      return usage;
     }
-    return `Note ${note} not found. Try 'notes ls' to see all available notes.`;
+
+    switch (args[0]) {
+      case 'ls': {
+        let result = notes.map((note) => note.id).join(', ');
+
+        return result;
+      }
+
+      case 'show': {
+        if (args.length !== 2) {
+          return usage;
+        }
+
+        const noteId = args[1];
+        const note = notes.find((note) => note.id === noteId);
+
+        if (!note) {
+          return `Note '${noteId}' not found. Try 'notes ls' to see all available notes.`;
+        }
+
+        return note.content;
+      }
+
+      default: {
+        return usage;
+      }
+    }
   },
   weather: async (args: string[]) => {
     const city = args.join('+');
